@@ -9,6 +9,14 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
+  exports.security = {
+    xframe: {
+      enable: false,
+      ignoreJSON: true
+    },
+    domainWhiteList: [ 'http://localhost:8080' ],
+  };
+
   exports.mongoose = {
     url: 'mongodb://127.0.0.1/nefu-crawler',
     options: {}

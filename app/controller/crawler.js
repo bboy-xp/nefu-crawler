@@ -300,12 +300,18 @@ class CrawlerController extends Controller {
         }
       })
 
-      return (courseArr);
+      return ({
+        courseArr: courseArr,
+        html: $.html()
+      });
     }
-
+    
+    let html = await getLessonArr(getScore);
+    html = html.html;
 
     async function formatCourseArr() {
-      const courseArr = await getLessonArr(getScore);
+      let courseArr = await getLessonArr(getScore);
+      courseArr = courseArr.courseArr;
       let newCourseArr = [];
 
       for (let i = 0; i < courseArr.length; i++) {
@@ -333,6 +339,7 @@ class CrawlerController extends Controller {
     }
     
     const newCourseArr = await formatCourseArr();
+
     async function saveCourse() {
       const newCourseArr = await formatCourseArr();
       newCourseArr.map(async (e, i) => {
@@ -349,7 +356,8 @@ class CrawlerController extends Controller {
         await courseSchema.save();
       })
     }
-    await saveCourse();
+
+    // await saveCourse();
 
     // console.log(courseArr.length);
     // const courseSchema = new Course({
@@ -409,8 +417,14 @@ class CrawlerController extends Controller {
     //     }
     //   })
     // })
+    // console.log(html);
+    const reqData = {
+      message: "ok",
+      newCourseArr: newCourseArr,
+      html: html
+    }
 
-    ctx.body = {message: newCourseArr};
+    ctx.body = reqData;
   }
 }
 
