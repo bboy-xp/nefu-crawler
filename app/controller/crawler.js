@@ -285,7 +285,9 @@ class CrawlerController extends Controller {
 
                 //处理智能周
                 let smartWeeks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-                const weekStr = weeks.slice(0, -3);
+                // const weekStr = weeks.slice(0, -3);
+                // 临时发现的bug 有的（）里面写的是单周  所以切割后三个字符串会出现bug
+                const weekStr = weeks.split('(')[0];
                 if (weekStr.indexOf(',') === -1) {
                   //周数中没有','的字符串
                   const weekArr = weekStr.split('-');
@@ -413,7 +415,7 @@ class CrawlerController extends Controller {
 
       return ({
         courseArr: courseArr,
-        html: $.html()
+        html: $(".Nsb_layout_r").html()
       });
     }
 
