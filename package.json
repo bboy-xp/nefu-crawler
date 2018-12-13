@@ -11,6 +11,7 @@
     "egg-cors": "^2.1.2",
     "egg-mongoose": "^3.1.1",
     "egg-scripts": "^2.5.0",
+    "moment": "^2.22.2",
     "qs": "^6.5.2"
   },
   "devDependencies": {

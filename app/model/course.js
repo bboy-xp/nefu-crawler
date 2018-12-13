@@ -16,6 +16,9 @@ module.exports = (app) => {
       room: String,
       smartWeeks: Array,
     }],
+    checked: { type: Boolean, required: true }, //是否被审核
+    isPassCheck: { type: Boolean, required: true },
+    checkMsg: { type: String }
   }, { timestamps: true });
 
   return mongoose.model('Course', courseSchema);

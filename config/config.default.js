@@ -12,7 +12,10 @@ module.exports = appInfo => {
   exports.security = {
     xframe: {
       enable: false,
-      ignoreJSON: true
+      // ignoreJSON: true
+    },
+    csrf: {
+      enable: false,
     },
     domainWhiteList: [ 'http://localhost:8080' ],
   };
