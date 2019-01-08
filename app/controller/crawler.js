@@ -64,7 +64,7 @@ class CrawlerController extends Controller {
     //获取专业课与成绩
     $("#dataList").find("tr").each((index, element) => {
       $(element).find("td").each((index2, element2) => {
-        if(index2 === 3 || index2 === 4) {
+        if (index2 === 3 || index2 === 4) {
           console.log($(element2).text());
         }
       })
@@ -134,37 +134,37 @@ class CrawlerController extends Controller {
       '身份证编号': '',
     }
     $("tbody").find("td").each((index, element) => {
-      if(index === 10) {
+      if (index === 10) {
         msg["院系"] = $(element).text().split("：")[1];
-      }else if(index === 11){
+      } else if (index === 11) {
         msg["专业"] = $(element).text().split("：")[1];
-      }else if(index === 12){
+      } else if (index === 12) {
         msg["学制"] = $(element).text().split("：")[1];
-      }else if(index === 14){
+      } else if (index === 14) {
         msg["学号"] = $(element).text().split("：")[1];
-      }else if(index === 16){
+      } else if (index === 16) {
         msg["姓名"] = $(element).text();
-      }else if(index === 18){
+      } else if (index === 18) {
         msg["性别"] = $(element).text();
-      }else if(index === 20){
+      } else if (index === 20) {
         msg["姓名拼音"] = $(element).text();
-      }else if(index === 23){
+      } else if (index === 23) {
         msg["出生日期"] = $(element).text();
-      }else if(index === 27){
+      } else if (index === 27) {
         msg["本人电话"] = $(element).text();
-      }else if(index === 31){
+      } else if (index === 31) {
         msg["政治面貌"] = $(element).text();
-      }else if(index === 33){
+      } else if (index === 33) {
         msg["籍贯"] = $(element).text();
-      }else if(index === 37){
+      } else if (index === 37) {
         msg["民族"] = $(element).text();
-      }else if(index === 51){
+      } else if (index === 51) {
         msg["家庭电话"] = $(element).text();
-      }else if(index === 190){
+      } else if (index === 190) {
         msg["入学日期"] = $(element).text();
-      }else if(index === 194){
+      } else if (index === 194) {
         msg["入学考号"] = $(element).text();
-      }else if(index === 196){
+      } else if (index === 196) {
         msg["身份证编号"] = $(element).text();
       }
     });
@@ -463,7 +463,10 @@ class CrawlerController extends Controller {
           teacher: e.teacher,
           name: e.name,
           injectByUser: e.injectByUser,
-          courseUnits: e.courseUnits
+          courseUnits: e.courseUnits,
+          checked: false,
+          isPassCheck: true,
+          checkMsg: ''
         });
         await courseSchema.save();
       })

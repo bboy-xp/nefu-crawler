@@ -1,5 +1,5 @@
 'use strict';
-
+const path = require('path');
 module.exports = appInfo => {
   const config = exports = {};
 
@@ -23,6 +23,11 @@ module.exports = appInfo => {
   exports.mongoose = {
     url: 'mongodb://127.0.0.1/nefu-crawler',
     options: {}
+  };
+  config.static = {
+    prefix: '/',
+    dir: path.join(appInfo.baseDir, 'app/public'),
+    dynamic: true,
   };
 
   return config;

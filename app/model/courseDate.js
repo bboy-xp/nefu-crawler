@@ -7,10 +7,12 @@ module.exports = (app) => {
       timeStart: String, // 节次
       smartWeeks: Array,
       dateArr: Array,
+      checked: Boolean,
+      isPassCheck: Boolean,
+      errorMessage: String,
     }],
     checked: { type: Boolean, required: true }, //是否被审核
     isPassCheck: { type: Boolean, required: true },
-    checkMsg: { type: String }
   }, { timestamps: true });
 
   return mongoose.model('CourseDate', courseDateSchema);
