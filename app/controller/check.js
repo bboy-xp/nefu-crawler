@@ -138,14 +138,6 @@ class CheckController extends Controller {
       'isPassCheck': isPassCheck,
       'courseUnitsArr': checkForm
     })
-    //  开始循环update
-    // checkForm.map(async (item, index) => {
-    //   await Course.update({ '_id': item.id }, {
-    //     checked: true,
-    //     isPassCheck: item.isCorrect,
-    //     checkMsg: item.errorMessage
-    //   })
-    // })
     ctx.body = "ok";
   }
   async getCheckDateData() {
