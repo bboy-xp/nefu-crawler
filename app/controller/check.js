@@ -106,6 +106,7 @@ class CheckController extends Controller {
     })
     // console.log(checkDateArr);
     ctx.body = 'success';
+    
   }
   async getCheckData() {
     const ctx = this.ctx;
